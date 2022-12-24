@@ -36,7 +36,7 @@ export class App extends Component {
 
         <Section title="Contacts">
           <Filter value={filter} onChange={this.handleFilter}></Filter>
-         <Contacts data={filtredContacts}> </Contacts>
+          <Contacts data={filtredContacts}> </Contacts>
         </Section> 
         
       </>

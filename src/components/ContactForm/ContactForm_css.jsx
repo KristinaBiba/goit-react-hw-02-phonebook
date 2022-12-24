@@ -11,7 +11,10 @@ display: block;
 export const Input = styled.input`
 display: block;
 margin-top: 8px;
-font-size: 24px;`;
+font-size: 24px;
+&:hover {
+    border-color: black;
+}`;
 
 export const Button = styled.button`  
   width: 200px;

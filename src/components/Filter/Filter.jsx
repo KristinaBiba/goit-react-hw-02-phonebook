@@ -1,10 +1,17 @@
-import {Input} from '../ContactForm/ContactForm_css'
+import {Input} from './Filter_css'
 
+import PropTypes from 'prop-types'
 
-export const Filter = ({value, handleFilter}) => {
+export const Filter = ({value, onChange}) => {
       return (
           <Input
               name="filter"
-              onChange={handleFilter}
-              value={value}/>)
-    };
+              value={value}
+              onChange={onChange}
+              />)
+};
+    
+Filter.propTypes = {
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+}

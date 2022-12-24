@@ -4,13 +4,15 @@ import { Label, Input, Button } from "./ContactForm_css";
 import { nanoid } from 'nanoid';
 
 export class ContactForm extends Component {
+  static defoultProps = {
+  contacts: this.props
+  }
   state = {
-    contacts: this.props,
+    contacts: [],
     name: '',
     number: '',
   }
 
-  
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
