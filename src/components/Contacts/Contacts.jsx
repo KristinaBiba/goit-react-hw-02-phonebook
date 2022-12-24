@@ -1,7 +1,8 @@
-import {P} from './Contacts_css'
+import {Li} from './Contacts_css'
 
 export const Contacts = ({data}) => {
       return (
-           data.map(({id, name, number}) => (<P key={id}>{name}: {number}</P>))
-      )
+          <ul>
+               {data.map(({id, name, number}) => (<Li key={id}>{name}: {number}</Li>))}
+          </ul>)
     };
