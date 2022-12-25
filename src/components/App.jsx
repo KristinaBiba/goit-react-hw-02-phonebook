@@ -26,6 +26,11 @@ export class App extends Component {
     this.state.contacts.find(contact => contact.name.toLowerCase() === normalizeNewContactName) ? alert(`${newContact.name} is already incontacts`) : this.setState((prevState) => { return { contacts: [...prevState.contacts, newContact] } });
   }
 
+  handleDelite = (id) => {
+
+    this.setState(prevState => ({contacts: prevState.contacts.filter(contact => contact.id !== id)}))
+  }
+
   render() {
 
     const {filter, contacts} = this.state;
@@ -39,10 +44,9 @@ export class App extends Component {
           <ContactForm onSubmit={this.handleFormSubmit}></ContactForm>
         </Section>
           
-
         <Section title="Contacts">
           <Filter value={filter} onChange={this.handleFilter}></Filter>
-          <Contacts data={filtredContacts}> </Contacts>
+          <Contacts data={filtredContacts} onDeliteContact={this.handleDelite}> </Contacts>
         </Section> 
         
       </>

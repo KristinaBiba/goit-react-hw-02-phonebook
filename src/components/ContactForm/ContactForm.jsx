@@ -2,8 +2,13 @@ import { Component } from "react";
 import { Label, Input, Button } from "./ContactForm_css";
 
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types'
 
 export class ContactForm extends Component {
+
+  static propTypes = {
+    onSubmit: PropTypes.func,
+  };
 
   state = {
     name: '',
@@ -13,7 +18,6 @@ export class ContactForm extends Component {
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
-    console.log(this.props);
   }
 
   handleAddContact = (e) => {
@@ -32,7 +36,7 @@ export class ContactForm extends Component {
         number: '',
         });
   }
-  
+
   render() {
   
    const { name, number } = this.state;
