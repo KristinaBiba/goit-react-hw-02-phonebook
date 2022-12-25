@@ -4,11 +4,8 @@ import { Label, Input, Button } from "./ContactForm_css";
 import { nanoid } from 'nanoid';
 
 export class ContactForm extends Component {
-  static defoultProps = {
-  contacts: this.props
-  }
+
   state = {
-    contacts: [],
     name: '',
     number: '',
   }
@@ -23,20 +20,19 @@ export class ContactForm extends Component {
     e.preventDefault();
 
     const { name, number } = e.currentTarget.elements;
-    
-    this.setState(prevState => {
-      return {
-        contacts: [...prevState.contacts,
-        {
-          name: name.value,
-          number: number.value,
-          id: nanoid(),
-        }],
+
+    this.props.onSubmit({
+      name: name.value,
+      number: number.value,
+      id: nanoid(),
+    });
+
+    this.setState({
         name: '',
         number: '',
-      };
-    });
+        });
   }
+  
   render() {
   
    const { name, number } = this.state;

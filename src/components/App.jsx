@@ -20,6 +20,12 @@ export class App extends Component {
     this.setState({filter: value})
   }
   
+  handleFormSubmit = (newContact) => {
+    const normalizeNewContactName = newContact.name.toLowerCase();
+    
+    this.state.contacts.find(contact => contact.name.toLowerCase() === normalizeNewContactName) ? alert(`${newContact.name} is already incontacts`) : this.setState((prevState) => { return { contacts: [...prevState.contacts, newContact] } });
+  }
+
   render() {
 
     const {filter, contacts} = this.state;
@@ -30,7 +36,7 @@ export class App extends Component {
     return (
       <>
         <Section title="Phonebook">
-          <ContactForm contacts={contacts}></ContactForm>
+          <ContactForm onSubmit={this.handleFormSubmit}></ContactForm>
         </Section>
           
 
