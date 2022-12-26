@@ -31,13 +31,17 @@ export class App extends Component {
     this.setState(prevState => ({contacts: prevState.contacts.filter(contact => contact.id !== id)}))
   }
 
+  toFiltredContacts = () => {
+    const normalizeFilter = this.state.filter.toLowerCase();
+     return this.state.contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter));
+  }
+
   render() {
 
-    const {filter, contacts} = this.state;
+    const {filter} = this.state;
 
-    const normalizeFilter = filter.toLowerCase();
-    const filtredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(normalizeFilter));
-
+    const filtredContacts = this.toFiltredContacts();
+    
     return (
       <>
         <Section title="Phonebook">
