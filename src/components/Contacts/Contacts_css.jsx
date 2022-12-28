@@ -17,7 +17,8 @@ export const Ul = styled.ul`
 export const P = styled.p`
 margin: 0;`;
 
-export const Button = styled.button`  
+export const Button = styled.button`
+  
   width: 150px;
   height: 40px;
   padding: 4px;
